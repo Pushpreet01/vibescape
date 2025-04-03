@@ -1,6 +1,12 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "baseUrl": ".", // Set the base URL for module resolution
+    "paths": {
+      "*": ["types/*"] // Map the types folder for custom type declarations
+    }
+  },
+  "include": ["src", "types"], // Include the types folder in compilation
+  "exclude": ["node_modules"] // Exclude node_modules to avoid unnecessary compilation
 }
