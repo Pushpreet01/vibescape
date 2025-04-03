@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { supabase } from '../lib/supabase';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+import { commonStyles } from '../src/styles';
 
 const bootstrap = new BootstrapStyleSheet();
 const { s } = bootstrap;
@@ -23,29 +24,38 @@ const LoginScreen = ({ navigation }: any) => {
   };
 
   return (
-    <View style={[s.container, s.p3, { backgroundColor: '#E6F0FA' }]}>
-      <Text style={[s.h3, s.textCenter]}>Login</Text>
-      <TextInput
-        style={[s.formControl, s.mb2]}
-        placeholder="Email or Username"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={[s.formControl, s.mb2]}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Text style={[s.textCenter, s.mb2]}>Forgot Password?</Text>
-      <Button title="Login" onPress={handleLogin} />
-      <Text
-        style={[s.textCenter, s.mt2]}
-        onPress={() => navigation.navigate('SignUp')}
-      >
-        or Sign Up
-      </Text>
+    <View style={{ flex: 1, backgroundColor: '#000' }}>
+      <View style={[s.container, s.p3, { backgroundColor: '#000', flex: 1 }]}>
+        <Text style={[s.textCenter, { color: '#FF5E00', fontSize: 32, fontWeight: 'bold', marginBottom: 20 }]}>
+          Login
+        </Text>
+        <TextInput
+          style={[commonStyles.input, { marginBottom: 16 }]}
+          placeholder="Email or Username"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={[commonStyles.input, { marginBottom: 16 }]}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Text style={[s.textCenter, s.mb2, { color: '#FF5E00' }]}>Forgot Password?</Text>
+        <TouchableOpacity
+          style={[commonStyles.button, { backgroundColor: '#FF5E00' }]}
+          onPress={handleLogin}
+        >
+          <Text style={commonStyles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <Text
+          style={[s.textCenter, { marginTop: 16, color: '#FF5E00' }]}
+          onPress={() => navigation.navigate('SignUp')}
+        >
+          or Sign Up
+        </Text>
+      </View>
     </View>
   );
 };

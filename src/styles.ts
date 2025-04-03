@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const commonStyles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: '#E6F0FA', // Light green background
+    backgroundColor: '#000', // Black background
     padding: 16,
   },
   title: {
@@ -11,7 +11,7 @@ export const commonStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 16,
-    color: '#333',
+    color: '#FF5E00', // Orange title
   },
   input: {
     backgroundColor: '#fff',
@@ -23,80 +23,29 @@ export const commonStyles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#6B48FF', // Purple button
+    backgroundColor: '#FF5E00', // Orange button
     borderRadius: 8,
     paddingVertical: 12,
     alignItems: 'center',
     marginBottom: 16,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 3, // Shadow for Android
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
   linkText: {
+    color: '#FF5E00', // Orange color
     textAlign: 'center',
-    color: '#6B48FF',
-    fontSize: 14,
-    marginBottom: 16,
+    marginTop: 8,
+    textDecorationLine: 'underline',
   },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    margin: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+  row: {
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cardText: {
-    fontSize: 16,
-    color: '#333',
-    marginLeft: 8,
-  },
-  largeCard: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    margin: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-    flex: 1,
-    alignItems: 'center',
-  },
-  bottomBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#fff',
-    padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  bottomBarIcon: {
-    marginHorizontal: 16,
-    fontSize: 24,
-    color: '#6B48FF',
+    justifyContent: 'space-around',
   },
 });

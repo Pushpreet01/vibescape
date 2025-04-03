@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, FlatList, Text, TouchableOpacity } from 'react-native';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+import { commonStyles } from '../src/styles';
 import Constants from 'expo-constants';
-
-const bootstrap = new BootstrapStyleSheet();
-const { s } = bootstrap;
 
 const SearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,9 +22,9 @@ const SearchScreen = () => {
   };
 
   return (
-    <View style={[s.container, s.p3, { backgroundColor: '#E6F0FA' }]}>
+    <View style={commonStyles.screenContainer}>
       <TextInput
-        style={[s.formControl, s.mb2]}
+        style={commonStyles.input}
         placeholder="Search"
         value={searchQuery}
         onChangeText={setSearchQuery}
@@ -37,8 +34,8 @@ const SearchScreen = () => {
         data={tracks}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity style={[s.btn, s.btnLight, s.mb2]}>
-            <Text>{item.name}</Text>
+          <TouchableOpacity style={commonStyles.button}>
+            <Text style={commonStyles.buttonText}>{item.name}</Text>
           </TouchableOpacity>
         )}
       />

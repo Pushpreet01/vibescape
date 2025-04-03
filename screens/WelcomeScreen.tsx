@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { MusicPlayerContext } from '../context/MusicPlayerContext';
-
-const bootstrap = new BootstrapStyleSheet();
-const { s } = bootstrap;
+import { commonStyles } from '../src/styles';
 
 const WelcomeScreen = () => {
   const { playTrack, pauseTrack, resumeTrack, isPlaying, currentTrack } =
@@ -17,25 +14,22 @@ const WelcomeScreen = () => {
   };
 
   return (
-    <View style={[s.container, s.p3, { backgroundColor: '#E6F0FA' }]}>
-      <Text style={[s.h3, s.textCenter]}>Welcome!</Text>
-      <View style={[s.row, s.mt3]}>
-        <TouchableOpacity
-          style={[s.btn, s.btnLight, s.m1]}
-          onPress={() => playTrack(sampleTrack)}
-        >
-          <Text>Song 1</Text>
+    <View style={commonStyles.screenContainer}>
+      <Text style={commonStyles.title}>Welcome!</Text>
+      <View style={commonStyles.row}>
+        <TouchableOpacity style={commonStyles.button} onPress={() => playTrack(sampleTrack)}>
+          <Text style={commonStyles.buttonText}>Song 1</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[s.btn, s.btnLight, s.m1]}>
-          <Text>Song 2</Text>
+        <TouchableOpacity style={commonStyles.button}>
+          <Text style={commonStyles.buttonText}>Song 2</Text>
         </TouchableOpacity>
       </View>
-      <View style={[s.row, s.positionAbsolute, s.bottom0, s.w100, s.p2]}>
+      <View style={commonStyles.row}>
         <TouchableOpacity onPress={pauseTrack}>
-          <Text>Pause</Text>
+          <Text style={commonStyles.buttonText}>Pause</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={resumeTrack}>
-          <Text>{isPlaying ? 'Playing' : 'Play'}</Text>
+          <Text style={commonStyles.buttonText}>{isPlaying ? 'Playing' : 'Play'}</Text>
         </TouchableOpacity>
       </View>
     </View>

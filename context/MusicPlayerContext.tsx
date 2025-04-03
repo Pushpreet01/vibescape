@@ -13,7 +13,7 @@ export const MusicPlayerProvider = ({ children }: any) => {
     const fileUri = `${FileSystem.documentDirectory}${track.id}.mp3`;
     const fileInfo = await FileSystem.getInfoAsync(fileUri);
     const uri = fileInfo.exists ? fileUri : track.audio;
-  
+
     if (sound) await sound.unloadAsync();
     const { sound: newSound } = await Audio.Sound.createAsync({ uri });
     setSound(newSound);
