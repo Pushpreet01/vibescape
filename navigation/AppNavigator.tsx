@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 const MainTabs = () => (
   <Tab.Navigator
     screenOptions={{
-      tabBarActiveTintColor: '#FF5E00', // Orange color for selected tab
+      tabBarActiveTintColor: '#FF5E00',
       tabBarInactiveTintColor: 'gray',
     }}
   >

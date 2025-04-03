@@ -28,12 +28,12 @@ const SignUpScreen = ({ navigation }: any) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#000' }}>
       <View style={[s.container, s.p3, { backgroundColor: '#000', flex: 1 }]}>
-        {/* Título "Sign Up" com laranja */}
+
         <Text style={[s.textCenter, { color: '#FF5E00', fontSize: 32, fontWeight: 'bold', marginBottom: 20 }]}>
           Sign Up
         </Text>
 
-        {/* Input para nome completo */}
+
         <TextInput
           style={[commonStyles.input, { marginBottom: 16 }]}
           placeholder="Full Name"
@@ -41,7 +41,7 @@ const SignUpScreen = ({ navigation }: any) => {
           onChangeText={setFullName}
         />
         
-        {/* Input para email ou username */}
+
         <TextInput
           style={[commonStyles.input, { marginBottom: 16 }]}
           placeholder="Email or Username"
@@ -49,7 +49,7 @@ const SignUpScreen = ({ navigation }: any) => {
           onChangeText={setEmail}
         />
         
-        {/* Input para senha */}
+
         <TextInput
           style={[commonStyles.input, { marginBottom: 16 }]}
           placeholder="Password"
@@ -58,7 +58,7 @@ const SignUpScreen = ({ navigation }: any) => {
           onChangeText={setPassword}
         />
         
-        {/* Botão de SignUp */}
+
         <TouchableOpacity
           style={[commonStyles.button, { backgroundColor: '#FF5E00' }]}
           onPress={handleSignUp}
@@ -66,7 +66,7 @@ const SignUpScreen = ({ navigation }: any) => {
           <Text style={commonStyles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
         
-        {/* Link para navegação para Login */}
+      
         <Text
           style={[s.textCenter, { marginTop: 16, color: '#FF5E00' }]}
           onPress={() => navigation.navigate('Login')}
