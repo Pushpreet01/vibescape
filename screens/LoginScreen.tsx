@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 import { supabase } from '../lib/supabase';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
-
-const bootstrap = new BootstrapStyleSheet();
-const { s } = bootstrap;
+import { commonStyles } from '../src/styles';
 
 const LoginScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState('');
@@ -23,29 +20,57 @@ const LoginScreen = ({ navigation }: any) => {
   };
 
   return (
-    <View style={[s.container, s.p3, { backgroundColor: '#E6F0FA' }]}>
-      <Text style={[s.h3, s.textCenter]}>Login</Text>
+    <View style={commonStyles.screenContainer}>
+      {/* VibeScape Logo */}
+      <Image
+        source={require('../assets/vibescape-logo.png')} // Adjust the path to your image
+        style={commonStyles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Horizontal line*/}
+      <View style={commonStyles.lineContainer}>
+        <View style={commonStyles.circle} />
+        <View style={commonStyles.horizontalLine} />
+        <View style={commonStyles.circle} />
+      </View>
+      
+      {/* Email Input */}
       <TextInput
-        style={[s.formControl, s.mb2]}
-        placeholder="Email or Username"
+        style={[commonStyles.input, { marginBottom: 16 }]}
+        placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        autoCapitalize="none"
       />
+
+      {/* Password Input */}
       <TextInput
-        style={[s.formControl, s.mb2]}
+        style={[commonStyles.input, { marginBottom: 24 }]}
         placeholder="Password"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
-      <Text style={[s.textCenter, s.mb2]}>Forgot Password?</Text>
-      <Button title="Login" onPress={handleLogin} />
-      <Text
-        style={[s.textCenter, s.mt2]}
+
+      {/* Login Button */}
+      <TouchableOpacity
+        style={commonStyles.button}
+        onPress={handleLogin}
+      >
+        <Text style={commonStyles.buttonText}>Login</Text>
+      </TouchableOpacity>
+
+      {/* "or" Text */}
+      <Text style={commonStyles.orText}>or</Text>
+
+      {/* Sign Up Button */}
+      <TouchableOpacity
+        style={commonStyles.button}
         onPress={() => navigation.navigate('SignUp')}
       >
-        or Sign Up
-      </Text>
+        <Text style={commonStyles.buttonText}>Signup</Text>
+      </TouchableOpacity>
     </View>
   );
 };

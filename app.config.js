@@ -31,7 +31,6 @@ export default {
       supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL,
       supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
       jamendoClientId: process.env.JAMENDO_CLIENT_ID,
-      appUrl: process.env.APP_URL,
     },
   },
 };

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 import { supabase } from '../lib/supabase';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import { commonStyles } from '../src/styles';
-
-const bootstrap = new BootstrapStyleSheet();
-const { s } = bootstrap;
 
 const SignUpScreen = ({ navigation }: any) => {
   const [fullName, setFullName] = useState('');
@@ -27,35 +23,71 @@ const SignUpScreen = ({ navigation }: any) => {
 
   return (
     <View style={commonStyles.screenContainer}>
-      <Text style={commonStyles.title}>Sign Up</Text>
+      {/* Back Arrow */}
+      <TouchableOpacity
+        style={{
+          position: 'absolute',
+          top: 30, 
+          left: 1,
+          zIndex: 1, // Ensure it appears above other elements
+          padding: 10,
+        }}
+        onPress={() => navigation.goBack()}
+      >
+        <Image
+          source={require('../assets/back-arrow.png')} // Adjust the path to your image
+          style={commonStyles.backArrow}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
+
+      {/* VibeScape Logo */}
+      <Image
+        source={require('../assets/vibescape-logo.png')} // Adjust the path to your image
+        style={commonStyles.logo}
+        resizeMode="contain"
+      />
+
+      {/* Horizontal line */}
+      <View style={commonStyles.lineContainer}>
+        <View style={commonStyles.circle} />
+        <View style={commonStyles.horizontalLine} />
+        <View style={commonStyles.circle} />
+      </View>
+
+      {/* Full Name Input */}
       <TextInput
-        style={commonStyles.input}
+        style={[commonStyles.input, { marginBottom: 16 }]}
         placeholder="Full Name"
         value={fullName}
         onChangeText={setFullName}
       />
+
+      {/* Email Input */}
       <TextInput
-        style={commonStyles.input}
-        placeholder="Email or Username"
+        style={[commonStyles.input, { marginBottom: 16 }]}
+        placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        autoCapitalize="none"
       />
+
+      {/* Password Input */}
       <TextInput
-        style={commonStyles.input}
+        style={[commonStyles.input, { marginBottom: 24 }]}
         placeholder="Password"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
-      <TouchableOpacity style={commonStyles.button} onPress={handleSignUp}>
-        <Text style={commonStyles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
-      <Text
-        style={commonStyles.linkText}
-        onPress={() => navigation.navigate('Login')}
+
+      {/* Sign Up Button */}
+      <TouchableOpacity
+        style={commonStyles.button}
+        onPress={handleSignUp}
       >
-        Already have an account? Login
-      </Text>
+        <Text style={commonStyles.buttonText}>Signup</Text>
+      </TouchableOpacity>
     </View>
   );
 };
