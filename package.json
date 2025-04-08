@@ -22,6 +22,7 @@
     "react": "18.3.1",
     "react-native": "0.76.8",
     "react-native-bootstrap-styles": "^4.5.0-r",
+    "react-native-linear-gradient": "^2.8.3",
     "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
